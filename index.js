@@ -6,6 +6,7 @@ import categoria from "./controller/CategoriaController.js";
 import livro from "./controller/LivroController.js";
 import usuario from "./controller/UsuarioController.js";
 import emprestimo from "./controller/EmprestimoController.js";
+import funcionario from "./controller/FuncionarioController.js";
 
 try {
     await banco.authenticate();
@@ -62,4 +63,21 @@ app.get('/emprestimo/:id', emprestimo.selecionar);
 app.post('/emprestar', emprestimo.emprestar);
 app.put('/devolver/:id', emprestimo.devolver);
 
+// Rotas para funcionários
+app.get('/funcionario', funcionario.listarFuncionarios);
+app.get('/funcionario/:id', funcionario.selecionarFuncionario);
+app.post('/funcionario', funcionario.inserirFuncionario);
+app.put('/funcionario/:id', funcionario.alterarFuncionario);
+//rota pra demitir
+app.put('/demitir/:id', funcionario.demitir);
+
+//rota pra alterar senha
+app.put('/demitir/:id', funcionario.definirSenha);
+
+//rota pra devolver
+app.put('/devolver/:id', emprestimo.devolver);
+
+
+
 app.listen(3000, () => { console.log(`Servidor rodando.`) });
+

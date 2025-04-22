@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
 import banco from "../banco.js";
 
-// Questão 9
+// Questão 1 e 9
 export default banco.define(
     'multa',
     {
